@@ -49,11 +49,13 @@ namespace DataStructuresDOTCPPTests
 			Stack<int> stack;
 
 			stack.push(1);
+			stack.push(2);
+			stack.push(3);
 
-			Assert::AreEqual(1, stack.peek());
+			Assert::AreEqual(3, stack.peek());
 
 			const auto &stack_const = stack;
-			Assert::AreEqual(1, stack_const.peek()); // test const peek
+			Assert::AreEqual(3, stack_const.peek()); // test const peek
 		}
 	};
 }
