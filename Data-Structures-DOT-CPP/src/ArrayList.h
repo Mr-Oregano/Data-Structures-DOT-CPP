@@ -95,6 +95,16 @@ public:
 		return begin() + _count;
 	}
 
+	[[nodiscard]] const T *begin() const noexcept
+	{
+		return &_data[0];
+	}
+
+	[[nodiscard]] const T *end() const noexcept
+	{
+		return begin() + _count;
+	}
+
 	// Undefined behaviour if 'index' is outside the range of the array
 	[[nodiscard]] T& operator[] (const std::size_t index) noexcept
 	{

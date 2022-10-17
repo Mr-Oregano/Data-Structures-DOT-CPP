@@ -3,14 +3,11 @@
 
 #include <ArrayList.h>
 
-#include <iostream>
-#include <cctype>
-
 using namespace Microsoft::VisualStudio::CppUnitTestFramework;
 
-namespace ArrayListTests
+namespace DataStructuresDOTCPPTests
 {
-	TEST_CLASS(DataStructuresDOTCPPTests)
+	TEST_CLASS(ArrayListTests)
 	{
 	public:
 		
@@ -84,6 +81,10 @@ namespace ArrayListTests
 			Assert::AreEqual((std::size_t) 2, list.count());
 			Assert::AreEqual(9, list[0]);
 			Assert::AreEqual(6, list[1]);
+
+			const auto &list_const = list;
+			Assert::AreEqual(9, list_const[0]); // test const get
+			Assert::AreEqual(6, list_const[1]);
 		}
 
 		TEST_METHOD(TestArrayListRemoveAt)
@@ -154,6 +155,9 @@ namespace ArrayListTests
 			list.add(9);
 
 			Assert::AreEqual(6, *list.begin());
+
+			const auto &list_const = list;
+			Assert::AreEqual(6, *list_const.begin()); // Test const begin
 		}
 
 		TEST_METHOD(TestArrayListEnd)
@@ -164,6 +168,9 @@ namespace ArrayListTests
 			list.add(9);
 
 			Assert::AreEqual(9, *(list.end() - 1));
+
+			const auto &list_const = list;
+			Assert::AreEqual(9, *(list_const.end() - 1)); // Test const begin
 		}
 
 		TEST_METHOD(TestArrayListIterate)
