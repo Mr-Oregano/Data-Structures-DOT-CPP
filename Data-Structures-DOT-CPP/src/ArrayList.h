@@ -111,7 +111,7 @@ public:
 		return _data[index];
 	}
 
-	[[nodiscard]] bool is_empty() noexcept
+	[[nodiscard]] bool is_empty() const noexcept
 	{
 		return _count == 0;
 	}
